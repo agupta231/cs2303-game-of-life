@@ -27,12 +27,6 @@ int main(int argc, char **argv) {
 		return EXIT_FAILURE;
 	}
 
-
-	/* Save the command-line arguments.
-		 Also need to check if print and/or pause arguments were entered,
-		 and if so, what they were.
-		 A switch statement might be handy here.
-	*/
 	rows = atoi(argv[1]); // Convert from character string to integer.
 	columns = atoi(argv[2]);
 	gens = atoi(argv[3]);
@@ -40,20 +34,6 @@ int main(int argc, char **argv) {
 
 	doPrint = argv[5][0] == 'y' ? 1 : 0;
 	doPause = argv[5][0] == 'y' ? 1 : 0;
-
-	printf("%d %d %d %s %d %d", 
-			rows,
-			columns,
-			gens,
-			inputFileName,
-			doPrint,
-			doPause);
-
-	/* Here is how you would allocate an array to hold the grid.
-	*/
-	// gridA = make2Dchar(nrows, ncolumns);
-	// You should check that it succeeded.
-
 
 	/* Eventually, need to try to open the input file.
 	*/
