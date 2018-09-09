@@ -38,6 +38,17 @@ int main(int argc, char **argv) {
 	gens = atoi(argv[3]);
 	inputFileName = argv[4];
 
+	doPrint = argv[5][0] == 'y' ? 1 : 0;
+	doPause = argv[5][0] == 'y' ? 1 : 0;
+
+	printf("%d %d %d %s %d %d", 
+			rows,
+			columns,
+			gens,
+			inputFileName,
+			doPrint,
+			doPause);
+
 	/* Here is how you would allocate an array to hold the grid.
 	*/
 	// gridA = make2Dchar(nrows, ncolumns);
