@@ -68,14 +68,6 @@ int** boardFromFile(char *inputFileName) {
 		do {
 			c = fgetc(input);
 		} while(!(c == EOF || c == '\n' || c == '\0'));
-
-		// char c; int i = 0;
-		// while(i < 10) {
-		// 	c = fgetc(input);
-		// 	i++;
-		// 	printf("%d %d %d\n", i, c, c == EOF || c == '\n' || c == '\0');
-		// 	if(c == EOF || c == '\n' || c == '\0') break;
-		// }
 	}
 	
 
