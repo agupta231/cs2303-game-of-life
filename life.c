@@ -9,6 +9,20 @@
 #include "config.h"
 #include "game.h"
 
+int userContinue() {
+	printf("\nWould you like to see the next generation (y/n)? ");
+
+	char userIn = getchar();
+	if(userIn == 'y') {
+		return 1;
+	} else if(userIn == 'n') {
+		return 0;
+	} else {
+		printf("\nInvalid input recieved. Please make sure to type 'y' or 'n'.");
+		return userContinue();
+	}
+}
+
 int main(int argc, char **argv) {
 	printf("Game of Life\n");
 
@@ -28,19 +42,29 @@ int main(int argc, char **argv) {
 	printf("Generation 0");
 	printMap(A);
 
-	for (int i = 1; i < 10000; i++) {
+	for (int i = 1; i < 100; i++) {
 		nextGeneration(*p, *q);
-
-		printf("Generation %d", i);
 
 		int*** temp = p;
 		p = q;
 		q = spare;
 		spare = temp;
 
-		printMap(*p);
+		if (DO_PRINT) {
+			if (DO_PAUSE && userContinue()) {
+					printf("Generation %d", i);
+					printMap(*p);
+			} else if(!DO_PAUSE){
+					printf("Generation %d", i);
+					printMap(*p);
+			}
+		}
 
 		if(isEqual(*p, *q) || isEqual(*p, *spare)) {
+			printf("Osiallation Detected. Final State: ");
+			printf("Generation %d", i);
+			printMap(*p);
+
 			return EXIT_FAILURE;
 		}
 

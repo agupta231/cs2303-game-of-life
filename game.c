@@ -60,13 +60,6 @@ void nextGeneration(int** currentBoard, int** nextGen) {
 	for(int row = 0; row < ROWS; row++) {
 		for(int col = 0; col < COLUMNS; col++) {
 			int value = currentBoard[row][col];
-
-			// printf("Current Board");
-			// printMap(currentBoard);
-
-			// printf("Next Board");
-			// printMap(nextGen);
-			
 			int neighbors = getNeighbors(currentBoard, row, col);
 			
 			if(value == 1 && (neighbors == 2 || neighbors == 3)) {

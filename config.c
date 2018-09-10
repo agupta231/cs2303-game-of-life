@@ -25,8 +25,19 @@ int getUserOptions(int argc, char **argv) {
 	GENS = atoi(argv[3]); 
 	INPUT_FILENAME = argv[4];
 
-	DO_PRINT = argv[5][0] == 'y' ? 1 : 0;
-	DO_PAUSE = argv[6][0] == 'y' ? 1 : 0;
+	if(argc >= 6) {
+		DO_PRINT = argv[5][0] == 'y' ? 1 : 0;
+	} else {
+		DO_PRINT = 0;
+	}
+	
+	if(DO_PRINT && argc == 7) {
+		DO_PAUSE = argv[6][0] == 'y' ? 1 : 0;
+	} else {
+		DO_PAUSE = 0;
+	}
+
+	printf("%d %d", DO_PRINT, DO_PAUSE);
 
 	return 0;
 }
