@@ -61,18 +61,23 @@ void nextGeneration(int** currentBoard, int** nextGen) {
 		for(int col = 0; col < COLUMNS; col++) {
 			int value = currentBoard[row][col];
 			int neighbors = getNeighbors(currentBoard, row, col);
+
 			
 			if(value == 1 && (neighbors == 2 || neighbors == 3)) {
 				nextGen[row][col] = 1;
+				//printf("h0 Point: %d, %d N: %d V:%d\n", row, col, neighbors, 1);
 			}
 			else if (value == 1) {
 				nextGen[row][col] = 0;
+				//printf("h1 Point: %d, %d N: %d V:%d\n", row, col, neighbors, 0);
 			}
 			else if (value == 0 && neighbors == 3) {
 				nextGen[row][col] = 1;
+				//printf("h2 Point: %d, %d N: %d V:%d\n", row, col, neighbors, 1);
 			}
 			else {
 				nextGen[row][col] = 0;
+				//printf("h3 Point: %d, %d N: %d V:%d\n", row, col, neighbors, 0);
 			}
 		}
 	}

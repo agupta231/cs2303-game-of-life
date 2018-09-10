@@ -10,17 +10,14 @@
 #include "game.h"
 
 int userContinue() {
-	printf("\nWould you like to see the next generation (y/n)? ");
+	printf("\nWould you like to see the next generation (y to cont.)? ");
 
 	char userIn = getchar();
 	if(userIn == 'y') {
 		return 1;
-	} else if(userIn == 'n') {
-		return 0;
-	} else {
-		printf("\nInvalid input recieved. Please make sure to type 'y' or 'n'.");
-		return userContinue();
-	}
+	} 
+
+	exit(0);
 }
 
 int main(int argc, char **argv) {
@@ -70,7 +67,7 @@ int main(int argc, char **argv) {
 			printf("Generation %d", i);
 			printMap(*p);
 
-			return EXIT_FAILURE;
+			return EXIT_SUCCESS;
 		}
 
 	}
