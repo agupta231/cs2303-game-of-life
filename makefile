@@ -12,6 +12,9 @@ life: life.o config.o game.o
 life.o: life.c config.h
 	gcc $(CFLAGS) -c life.c
 
+game.o: game.c config.h game.h
+	gcc $(CFLAGS) -c game.c
+
 config.o: config.c 
 	gcc $(CFLAGS) -c config.c
 

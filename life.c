@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 #include "config.h"
+#include "game.h"
 
 int main(int argc, char **argv) {
 	printf("Game of Life\n");
@@ -15,7 +16,8 @@ int main(int argc, char **argv) {
 		return EXIT_FAILURE;
 	}
 
-	boardFromFile(INPUT_FILENAME);
+	int** board = boardFromFile(INPUT_FILENAME);
+	printMap(board);
 
 	return EXIT_SUCCESS;
 }
