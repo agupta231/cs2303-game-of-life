@@ -25,10 +25,35 @@ int getUserOptions(int argc, char **argv) {
 	GENS = atoi(argv[3]); 
 	INPUT_FILENAME = argv[4];
 
-	DO_PRINT = argv[5][0] == 'y' ? 1 : 0;
-	DO_PAUSE = argv[6][0] == 'y' ? 1 : 0;
+	if(argc >= 6) {
+		DO_PRINT = argv[5][0] == 'y' ? 1 : 0;
+	} else {
+		DO_PRINT = 0;
+	}
+	
+	if(DO_PRINT && argc == 7) {
+		DO_PAUSE = argv[6][0] == 'y' ? 1 : 0;
+	} else {
+		DO_PAUSE = 0;
+	}
 
 	return 0;
+}
+
+int** emptyBoard() {
+	int **array = (int **) malloc(ROWS * sizeof(int *));
+	if (!array) return (int **) NULL;
+
+	for(int row = 0; row < ROWS; row++) {
+		array[row] = malloc(COLUMNS * sizeof(int));
+		if (!array[row]) return (int **) NULL;
+
+		for(int col = 0; col < COLUMNS; col++) {
+			array[row][col] = 0;
+		}
+	}
+
+	return array;
 }
 
 int** boardFromFile(char *inputFileName) {
@@ -71,15 +96,5 @@ int** boardFromFile(char *inputFileName) {
 	
 
 	fclose(input);
-	
-	printf("Printing the array:\n");
-
-	for(int i = 0; i < ROWS; i++) {
-		for(int j = 0; j < COLUMNS; j++) {
-			printf("%d", array[i][j]);
-		}
-		printf("\n");
-	}
-	
 	return array;
 }

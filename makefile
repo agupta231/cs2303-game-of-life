@@ -1,5 +1,5 @@
-# Set CFLAGS to activate all warnings and enable debugger
-CFLAGS = -Wall -g
+# Set CFLAGS to activate jall warnings and enable debugger
+CFLAGS = -Wall -g -Wextra
 
 # Default rule is to build the executable called life
 all: life
@@ -11,6 +11,9 @@ life: life.o config.o game.o
 # Rules for building each object file.
 life.o: life.c config.h
 	gcc $(CFLAGS) -c life.c
+
+game.o: game.c config.h game.h
+	gcc $(CFLAGS) -c game.c
 
 config.o: config.c 
 	gcc $(CFLAGS) -c config.c
