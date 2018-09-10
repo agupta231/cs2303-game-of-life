@@ -52,12 +52,10 @@ int** boardFromFile(char *inputFileName) {
 		for(int item = 0; item < COLUMNS; item++) {
 			if(valid) {
 				val = fgetc(input);
-				printf("Pos: %d, %d -- %d \n", row, item, val);
 
 				if(val == EOF || val == '\n' || val == '\0') {
 					valid = 0;
 					array[row][item] = 0;
-					printf("here %d %d: %d\n", row, item, valid);
 				} else {
 					array[row][item] = val == 'x' ? 1 : 0;
 				}
@@ -66,20 +64,9 @@ int** boardFromFile(char *inputFileName) {
 			}
 		}
 
-		printf("END OF LOOP - Valid: %d", valid);
-
 		while(valid && !(val == EOF || val == '\n' || val == '\0')) {
-			printf("here2 - valid: %d", valid);
 			val = fgetc(input);
 		} 
-
-		// char c; int i = 0;
-		// while(i < 10) {
-		// 	c = fgetc(input);
-		// 	i++;
-		// 	printf("%d %d %d\n", i, c, c == EOF || c == '\n' || c == '\0');
-		// 	if(c == EOF || c == '\n' || c == '\0') break;
-		// }
 	}
 	
 
