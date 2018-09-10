@@ -19,20 +19,31 @@ int main(int argc, char **argv) {
 	int** board = boardFromFile(INPUT_FILENAME);
 	int** empty = emptyBoard();
 
-	int*** currentBoard = &board;
-	int*** nextBoard = &empty;
+	int*** A = &empty;
+	int*** B = &empty;
+	int*** C = &board;
 
 
-	for (int i = 0; i < 20; i++) {
+	printf("Generation 0");
+	printMap(*C);
+
+	for (int i = 1; i < 20; i++) {
+		B = A;
+
+		nextGeneration(*C, *A);
+
+		int*** temp = B;
+		B = C;
+		C = A;
+		A = temp;
+
 		printf("Generation %d", i);
-	 
-		printMap(*currentBoard);
-		nextGeneration(*currentBoard, *nextBoard);
+		printMap(*C);
 
-		currentBoard = nextBoard;
-		nextBoard = &empty;
-		
-		// board = nextBoard;
+		if(isEqual(*A, *B) || isEqual(*B, *C)) {
+			return EXIT_FAILURE;
+		}
+
 	}
 
 	return EXIT_SUCCESS;

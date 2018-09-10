@@ -68,7 +68,7 @@ void nextGeneration(int** currentBoard, int** nextGen) {
 			int value = currentBoard[row][col];
 			int neighbors = getNeighbors(currentBoard, row, col);
 			
-			printf("Row: %d Col: %d\n", row, col);
+			// printf("Row: %d Col: %d\n", row, col);
 
 			if(value == 1 && (neighbors == 2 || neighbors == 3)) {
 				nextGen[row][col] = 1;
@@ -84,4 +84,16 @@ void nextGeneration(int** currentBoard, int** nextGen) {
 			}
 		}
 	}
+}
+
+int isEqual(int** A, int** B) {
+	int differences = 0;
+
+	for(int i = 0; i < ROWS; i++) {
+		for(int j = 0; j < COLUMNS; j++) {
+			if(A[i][j] != B[i][j]) differences++;
+		}
+	}
+
+	return differences == 0;
 }

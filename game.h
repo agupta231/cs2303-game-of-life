@@ -10,5 +10,6 @@
 // Function prototypes:
 void printMap(int **gameMap);
 void nextGeneration(int** currentBoard, int** nextGen);
+int isEqual(int** A, int** B);
 
 #endif
