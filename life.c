@@ -13,17 +13,55 @@
  * @brief A helper function to parse the user input and determine if they would
  * like to see the next generation.
  *
- * @return 
+ * @return 1 if the user wants to continue. Exit otherwise
  */
 int userContinue() {
+	// Declare the variable that is in charge of the user's input
 	char userIn;
-	while(1) {
-		printf("\nWould you like to see the next generation (y to cont.)? ");
 
+	/*
+	 * Loop in charge of looping over until the user inputs a valid answer.
+	 *
+	 * This is purposefully an infinite loop, and is designed for the program to
+	 * stop working until the user finally decides to comply with the program.
+	 *
+	 * Loop invariant: Everytime this loop runs, it means that the user has either
+	 *                 given an invalid input, or hasn't inputted anything yet. In
+	 *                 either case, the only way that this loop will stop is if
+	 *                 the user inputs in a valid character.
+	 */
+	while(1) {
+		// Ask the user if they would like to see the next generation
+		printf("\nWould you like to see the next generation (y/n)? ");
+
+		// Label the section of the code where the input is taken in, but the
+		// prompt isn't printed again.
+		//
+		// YES. I KNOW THAT GOTO IS TO NEVER BE USED IN ANY SORT OF PRODUCTION OR
+		// ANY REAL CODEBASE. However, when a character is inputted in std,
+		// getchar() will also pick up the special ascii characters as well. A naive
+		// implementation of this function then causes it to print out the prompt
+		// twice, which is quite gross. 
+		//
+		// By skipping to this line of code, it effectively throws away the useless
+		// character, and makes the user input look quite sexy while doing so.
+		//
+		// The only reason why I am using goto is because:
+		// 1. This is already an infite loop, meaning the the stopping criterion are
+		//    in the body of the loop, rather than the conditional block. Using goto
+		//    would normally bypass the conditional block, but that is trivial in
+		//    this case because there is nothing in there.
+		// 2. This label is in perhaps the least important function in the whole
+		//    program, and I feel a lot better using goto here than a place that
+		//    does some "real heavy lifting"
+		// 3. I don't plan on using goto for the rest of my life, and I want to be
+		//    be able to say that I used it at least once unironically.
 		prompt:
 			// Get the user's input
 			userIn = getchar();
 			
+			// If the input was a special character, that means that there were left
+			// over characters from the previous input. Use goto to flush them out. 
 			if(userIn == '\n' || userIn == '\0') {
 				goto prompt;
 			}
