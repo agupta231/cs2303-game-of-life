@@ -23,7 +23,7 @@ int getUserOptions(int argc, char **argv) {
 	ROWS = atoi(argv[1]);
 	COLUMNS = atoi(argv[2]);
 	GENS = atoi(argv[3]); 
-	INPUT_FILENAME = argv[3];
+	INPUT_FILENAME = argv[4];
 
 	DO_PRINT = argv[5][0] == 'y' ? 1 : 0;
 	DO_PAUSE = argv[6][0] == 'y' ? 1 : 0;
