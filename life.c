@@ -23,6 +23,8 @@ int main(int argc, char **argv) {
 			DO_PAUSE,
 			INPUT_FILENAME);
 
+	boardFromFile(INPUT_FILENAME);
+
 	char *inputFileName;
 	FILE *input;
 

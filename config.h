@@ -16,5 +16,6 @@ char *INPUT_FILENAME;
 
 // Function prototypes:
 int getUserOptions(int argc, char **argv);
+int** boardFromFile(char *inputFileName);
 
 #endif
