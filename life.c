@@ -17,7 +17,23 @@ int main(int argc, char **argv) {
 	}
 
 	int** board = boardFromFile(INPUT_FILENAME);
-	printMap(board);
+	int** empty = emptyBoard();
+
+	int*** currentBoard = &board;
+	int*** nextBoard = &empty;
+
+
+	for (int i = 0; i < 20; i++) {
+		printf("Generation %d", i);
+	 
+		printMap(*currentBoard);
+		nextGeneration(*currentBoard, *nextBoard);
+
+		currentBoard = nextBoard;
+		nextBoard = &empty;
+		
+		// board = nextBoard;
+	}
 
 	return EXIT_SUCCESS;
 }

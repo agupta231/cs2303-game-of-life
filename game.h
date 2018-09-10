@@ -9,5 +9,6 @@
 
 // Function prototypes:
 void printMap(int **gameMap);
+void nextGeneration(int** currentBoard, int** nextGen);
 
 #endif

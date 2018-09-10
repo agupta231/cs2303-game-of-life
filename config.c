@@ -31,6 +31,22 @@ int getUserOptions(int argc, char **argv) {
 	return 0;
 }
 
+int** emptyBoard() {
+	int **array = (int **) malloc(ROWS * sizeof(int *));
+	if (!array) return (int **) NULL;
+
+	for(int row = 0; row < ROWS; row++) {
+		array[row] = malloc(COLUMNS * sizeof(int));
+		if (!array[row]) return (int **) NULL;
+
+		for(int col = 0; col < COLUMNS; col++) {
+			array[row][col] = 0;
+		}
+	}
+
+	return array;
+}
+
 int** boardFromFile(char *inputFileName) {
 	FILE *input = fopen(inputFileName, "r");
 

@@ -1,5 +1,5 @@
 # Set CFLAGS to activate all warnings and enable debugger
-CFLAGS = -Wall -g
+CFLAGS = -Wall -g -Wextra
 
 # Default rule is to build the executable called life
 all: life
