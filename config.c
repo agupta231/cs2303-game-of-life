@@ -37,8 +37,6 @@ int getUserOptions(int argc, char **argv) {
 		DO_PAUSE = 0;
 	}
 
-	printf("%d %d", DO_PRINT, DO_PAUSE);
-
 	return 0;
 }
 
@@ -98,15 +96,5 @@ int** boardFromFile(char *inputFileName) {
 	
 
 	fclose(input);
-	
-	printf("Printing the array:\n");
-
-	for(int i = 0; i < ROWS; i++) {
-		for(int j = 0; j < COLUMNS; j++) {
-			printf("%d", array[i][j]);
-		}
-		printf("\n");
-	}
-	
 	return array;
 }

@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 	printf("Generation 0");
 	printMap(A);
 
-	for (int i = 1; i < 100; i++) {
+	for (int i = 1; i < GENS; i++) {
 		nextGeneration(*p, *q);
 
 		int*** temp = p;
