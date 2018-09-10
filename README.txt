@@ -24,6 +24,9 @@ parameters are defined as per the following:
 * `print` - [optional] Whether you want every generation to be printed out
 * `pause` - [optional] Whether you want to be asked to continue to the next gen.
 
+To try it out with a test case, you can run
+`./life 40 40 100 start/spaceship.txt y`
+
 ## Implementation Dreams
 
 There are a couple places where this program implementation could have been
