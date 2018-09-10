@@ -1,7 +1,6 @@
-/*
+/**
  * Game of Life main program
- * Author: Ankur Gupta
- * Email: agupta4@wpi.edu
+ * @author: Ankur Gupta <agupta4@wpi.edu>
  */
 
 #include <stdio.h>
@@ -42,6 +41,7 @@ int main(int argc, char **argv) {
 		printf("Unable to open input file: %s\n", inputFileName);
 		return EXIT_FAILURE;
 	}
+
 
 	/*Once opened, you can read from the file one character at a time with fgetc().
 	 * You can read one line at a time using fgets().
