@@ -30,9 +30,9 @@ void printMap(int **gameMap) {
 int inRange(int index, int selector) {
 	switch(selector) {
 		case ROW:
-			return index > 0 && index < ROWS;
+			return index >= 0 && index < ROWS;
 		case COLUMN:
-			return index > 0 && index < COLUMNS;
+			return index >= 0 && index < COLUMNS;
 		default:
 			return 0;
 	}
@@ -42,7 +42,7 @@ int getNeighbors(int** board, int row, int col) {
 	int neighbors = 0;
 
 	for(int i = -1; i <= 1; i++) {
-		for(int j = -1; j <=1; j++) {
+		for(int j = -1; j<= 1; j++) {
 			if(i == 0 && j == 0) {
 				continue;
 			}
@@ -57,19 +57,18 @@ int getNeighbors(int** board, int row, int col) {
 }
 
 void nextGeneration(int** currentBoard, int** nextGen) {
-	// int **nextGen = (int **) malloc(ROWS * sizeof(int *));
-	// if (!nextGen) return (int **) NULL;
-
 	for(int row = 0; row < ROWS; row++) {
-		// nextGen[row] = malloc(COLUMNS + sizeof(int));
-		// if (!nextGen[row]) return (int **) NULL;
-
 		for(int col = 0; col < COLUMNS; col++) {
 			int value = currentBoard[row][col];
+
+			// printf("Current Board");
+			// printMap(currentBoard);
+
+			// printf("Next Board");
+			// printMap(nextGen);
+			
 			int neighbors = getNeighbors(currentBoard, row, col);
 			
-			// printf("Row: %d Col: %d\n", row, col);
-
 			if(value == 1 && (neighbors == 2 || neighbors == 3)) {
 				nextGen[row][col] = 1;
 			}

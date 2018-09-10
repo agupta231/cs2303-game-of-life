@@ -16,31 +16,31 @@ int main(int argc, char **argv) {
 		return EXIT_FAILURE;
 	}
 
-	int** board = boardFromFile(INPUT_FILENAME);
-	int** empty = emptyBoard();
+	int** A = boardFromFile(INPUT_FILENAME);
+	int** B = emptyBoard();
+	int** C = emptyBoard();
 
-	int*** A = &empty;
-	int*** B = &empty;
-	int*** C = &board;
 
+	int*** p = &A;
+	int*** q = &B;
+	int*** spare = &C;
 
 	printf("Generation 0");
-	printMap(*C);
+	printMap(A);
 
-	for (int i = 1; i < 20; i++) {
-		B = A;
-
-		nextGeneration(*C, *A);
-
-		int*** temp = B;
-		B = C;
-		C = A;
-		A = temp;
+	for (int i = 1; i < 10000; i++) {
+		nextGeneration(*p, *q);
 
 		printf("Generation %d", i);
-		printMap(*C);
 
-		if(isEqual(*A, *B) || isEqual(*B, *C)) {
+		int*** temp = p;
+		p = q;
+		q = spare;
+		spare = temp;
+
+		printMap(*p);
+
+		if(isEqual(*p, *q) || isEqual(*p, *spare)) {
 			return EXIT_FAILURE;
 		}
 
