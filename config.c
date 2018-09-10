@@ -273,6 +273,11 @@ int** boardFromFile(char *inputFileName) {
 		// If there are still valid characters, simply move the file pointer up
 		// until a new line or EOF. This allows for the lines in the text file to be
 		// longer than board that the user speicifed.
+		//
+		// Loop Invariant: The val is a pointer to a character in the same line as
+		// the previous loops. This val will continue to iterate through the line in
+		// the file until it reaches a special character, indicating that it has
+		// reached the end of the line or the file.
 		while(valid && !(val == EOF || val == '\n' || val == '\0')) {
 			val = fgetc(input);
 		} 
