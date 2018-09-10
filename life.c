@@ -16,18 +16,29 @@
  * @return 
  */
 int userContinue() {
-	printf("\nWould you like to see the next generation (y to cont.)? ");
-	
-	// Get the user's input
-	char userIn = getchar();
+	char userIn;
+	while(1) {
+		printf("\nWould you like to see the next generation (y to cont.)? ");
 
-	// If the user replies with 'y', then continue, else exit
-	if(userIn == 'y') {
-		return 1;
-	} 
+		prompt:
+			// Get the user's input
+			userIn = getchar();
+			
+			if(userIn == '\n' || userIn == '\0') {
+				goto prompt;
+			}
 
-	// Exit the program becuase the user didn't want to continue
-	exit(0);
+			// If the user replies with 'y', then continue.
+			// If the user replies with 'n', then exit
+			// Else prompt again
+			if(userIn == 'y') {
+				return 1;
+			} else if(userIn == 'n') {
+				exit(0);
+			} else {
+				printf("Wrong data type inputted. Please type in 'y' or 'n' %c", userIn);
+			}
+	}
 }
 
 /**
