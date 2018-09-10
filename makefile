@@ -1,5 +1,5 @@
 # Set CFLAGS to activate jall warnings and enable debugger
-CFLAGS = -Wall -g -Wextra
+CFLAGS = -Wall -g 
 
 # Default rule is to build the executable called life
 all: life

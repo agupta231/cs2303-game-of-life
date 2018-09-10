@@ -7,6 +7,7 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
+// Global variables
 int ROWS;
 int COLUMNS;
 int GENS;
