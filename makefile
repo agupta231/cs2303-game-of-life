@@ -12,7 +12,7 @@ life: life.o config.o game.o
 life.o: life.c config.h
 	gcc $(CFLAGS) -c life.c
 
-config.o: config.c config.h
+config.o: config.c 
 	gcc $(CFLAGS) -c config.c
 
 # Give command "make clean" to remove object files,
