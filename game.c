@@ -134,14 +134,14 @@ int getNeighbors(int** board, int row, int col) {
  * generation
  */
 void nextGeneration(int** currentBoard, int** nextGen) {
-	/** 
+	/* 
 	 * Iterate through the rows in the board.
 	 *
 	 * Loop invariant: row will always be the current row that is being worked on
 	 * in the board
 	 */
 	for(int row = 0; row < ROWS; row++) {
-		/**
+		/*
 		 * Iterate through the columns in the board.
 		 *
 		 * Loop invariant: col will always be the current column that is being
@@ -192,14 +192,14 @@ int isEqual(int** A, int** B) {
 	// Initialize the number of differences to be 0
 	int differences = 0;
 
-	/** 
+	/* 
 	 * Iterate through the rows in the board.
 	 *
 	 * Loop invariant: row will always be the current row that is being worked on
 	 * in the board
 	 */
 	for(int i = 0; i < ROWS; i++) {
-		/**
+		/*
 		 * Iterate through the columns in the board.
 		 *
 		 * Loop invariant: col will always be the current column that is being
