@@ -6,8 +6,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "config.h"
+
 int main(int argc, char **argv) {
 	printf("Game of Life\n");
+
+	if(getUserOptions(argc, argv) == -1) {
+		return EXIT_FAILURE;
+	}
 
 	char *inputFileName;
 	FILE *input;

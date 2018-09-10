@@ -25,5 +25,8 @@ int getUserOptions(int argc, char **argv) {
 	GENS = atoi(argv[3]); 
 	INPUT_FILENAME = argv[3];
 
-	
+	DO_PRINT = argv[5][0] == 'y' ? 1 : 0;
+	DO_PAUSE = argv[6][0] == 'y' ? 1 : 0;
+
+	return 0;
 }
