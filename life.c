@@ -31,6 +31,11 @@ int main(int argc, char **argv) {
 	}
 
 	int** A = boardFromFile(INPUT_FILENAME);
+
+	if (A == NULL) {
+		return 1;
+	}
+
 	int** B = emptyBoard();
 	int** C = emptyBoard();
 
